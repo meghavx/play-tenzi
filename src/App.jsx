@@ -8,9 +8,20 @@ import {
 } from "@chakra-ui/react"
 
 import Die from './components/Die'
+import { useState } from "react"
 
 export default function App() {
-  const numbers = [1, 2, 1, 4, 5, 3, 3, 5, 6, 1];
+  const [dice, setDice] = useState(generateAllNewDice())
+
+  function generateAllNewDice() {
+    return Array(10).fill(0).map(() => Math.ceil(Math.random() * 6))
+  }
+
+  const diceElements = dice.map((num, index) => <Die key={index} val={num} />)
+
+  function rollDice() {
+    setDice(generateAllNewDice())
+  }
 
   const outerFlexProps = {
     minH: "100vh",
@@ -72,6 +83,7 @@ export default function App() {
     fontWeight: ["semibold", "bold"],
     letterSpacing: "wide",
     bgColor: "#5035FF",
+    onClick: rollDice
   }
 
   return (
@@ -86,7 +98,7 @@ export default function App() {
           </Text>
 
           <SimpleGrid {...dieGridProps}>
-            {numbers.map((num, index) => (<Die key={index} val={num} />))}
+            {diceElements}
           </SimpleGrid>
 
           <Button {...rollButtonProps}>Roll</Button>
