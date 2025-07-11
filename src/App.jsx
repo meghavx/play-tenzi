@@ -25,7 +25,7 @@ export default function App() {
 
   function rollDice() {
     setDice(currDice => currDice.map(die => 
-      !die.isHeld ? {...die, value: getRandomVal()} : die
+      die.isHeld ? die : {...die, value: getRandomVal()}
     ))
   }
 
@@ -44,8 +44,8 @@ export default function App() {
   }
 
   const outerBoxProps = {
-    w: ["90vw", "80vw", "540px"],
-    h: ["auto", "auto", "560px"],
+    w: ["84vw", "76vw", "540px"],
+    h: ["auto", "84vh", "560px"],
     px: "8",
     py: "12",
     bg: "#0B2434",
@@ -74,7 +74,8 @@ export default function App() {
 
   const subheadingProps = {
     px: ["6", "8", "12"],
-    fontSize: ["md", "lg", "xl"],
+    mb: ["2", "4"],
+    fontSize: ["xs", "lg", "xl"],
     color: "#4A4E74",
     letterSpacing: "tighter",
     lineHeight: "shorter",
@@ -82,17 +83,18 @@ export default function App() {
   }
 
   const diceGridProps = {
-    m: "6",
-    columns: ["3", "5"],
+    mx: "auto",
+    my: "2",
+    columns: "5",
     gap: ["2", "4", "5"],
   }
 
   const rollButtonProps = {
-    m: ["2", "4"],
-    w: ["80px", "100px", "120px"],
-    h: ["40px", "44px", "48px"],
-    fontSize: ["md", "lg", "xl"],
-    fontWeight: ["semibold", "bold"],
+    w: ["68px", "100px", "120px"],
+    h: ["32px", "44px", "48px"],
+    m: ["4", "6"],
+    fontSize: ["sm", "lg", "xl"],
+    fontWeight: ["normal", "semibold", "bold"],
     letterSpacing: "wide",
     bgColor: "#5035FF",
     onClick: rollDice
