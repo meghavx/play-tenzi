@@ -1,14 +1,22 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Box, Flex, Text, Button, Heading, SimpleGrid } from "@chakra-ui/react"
 import Die from "./components/Die"
 import { nanoid } from "nanoid"
 
 export default function App() {
   const [dice, setDice] = useState(generateAllNewDice())
+  
+  useEffect(() => {
+    const allHeld = dice.every(die => die.isHeld)
+    const allSameValue = dice.every(die => die.value === dice[0].value)
 
-  if (dice.every(die => die.isHeld && die.value === dice[0].value)) {
-    alert("You won!!")
-  } 
+    if (allHeld && allSameValue) {
+      setTimeout(() => {
+        alert("You won!!")
+        setDice(generateAllNewDice())
+      }, 100);
+    }
+  }, [dice])
 
   function getRandomVal() {
     return Math.ceil(Math.random() * 6) 
