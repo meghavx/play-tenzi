@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import { Box, Flex, Text, Button, Heading, SimpleGrid } from "@chakra-ui/react"
 import Die from "./components/Die"
 import { nanoid } from "nanoid"
@@ -9,6 +9,13 @@ export default function App() {
   const { width, height } = useWindowSize()
   const [dice, setDice] = useState(() => generateAllNewDice())
   const gameWon = dice.every(die => die.isHeld && die.value === dice[0].value)
+  const newGameButtonRef = useRef(null)
+
+  useEffect(() => {
+    if (gameWon) {
+      newGameButtonRef.current.focus()
+    }
+  }, [gameWon])
 
   function getRandomVal() {
     return Math.ceil(Math.random() * 6) 
@@ -110,7 +117,8 @@ export default function App() {
     fontWeight: ["normal", "semibold", "bold"],
     letterSpacing: "wide",
     bgColor: "#5035FF",
-    onClick: gameWon ? resetDice : rollDice
+    onClick: gameWon ? resetDice : rollDice,
+    ref: newGameButtonRef
   }
 
   return (
