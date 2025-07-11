@@ -24,7 +24,9 @@ export default function App() {
   }
 
   function hold(id) {
-    alert(id)
+    setDice(currDice => currDice.map(die =>
+      die.id === id ? {...die, isHeld: !die.isHeld} : die
+    ))
   }
 
   const outerFlexProps = {
