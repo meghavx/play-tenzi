@@ -107,8 +107,8 @@ export default function App() {
   }
 
   const rollButtonProps = {
-    minW: "100px",
-    maxW: "150px",
+    minW: ["auto", "100px"],
+    maxW: ["auto", "150px"],
     h: "auto",
     m: ["4", "6"],
     px: "4",
