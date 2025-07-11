@@ -1,23 +1,21 @@
-import { 
-  Box,
-  Flex,
-  Text,
-  Button,
-  Heading,
-  SimpleGrid
-} from "@chakra-ui/react"
-
-import Die from './components/Die'
 import { useState } from "react"
+import { Box, Flex, Text, Button, Heading, SimpleGrid } from "@chakra-ui/react"
+import Die from './components/Die'
 
 export default function App() {
   const [dice, setDice] = useState(generateAllNewDice())
 
   function generateAllNewDice() {
-    return Array(10).fill(0).map(() => Math.ceil(Math.random() * 6))
+    return Array(10)
+      .fill(0)
+      .map(() => ({
+        value: Math.ceil(Math.random() * 6),
+        isHeld: false,
+      })
+    )
   }
 
-  const diceElements = dice.map((num, index) => <Die key={index} val={num} />)
+  const diceElements = dice.map((dieObj, index) => <Die key={index} {...dieObj} />)
 
   function rollDice() {
     setDice(generateAllNewDice())
@@ -69,7 +67,7 @@ export default function App() {
     textAlign: "center",
   }
 
-  const dieGridProps = {
+  const diceGridProps = {
     m: "6",
     columns: ["3", "5"],
     gap: ["2", "4", "5"],
@@ -97,7 +95,7 @@ export default function App() {
             Roll until all dice are the same. Click each die to freeze it at its current value between rolls.
           </Text>
 
-          <SimpleGrid {...dieGridProps}>
+          <SimpleGrid {...diceGridProps}>
             {diceElements}
           </SimpleGrid>
 

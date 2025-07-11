@@ -1,6 +1,6 @@
 import { Button } from "@chakra-ui/react"
 
-export default function Die({ val }) {
+export default function Die({ value }) {
   const dieButtonProps = {
     w: ["50px", "55px", "60px"],
     h: ["50px", "55px", "60px"],
@@ -13,6 +13,6 @@ export default function Die({ val }) {
   }
 
   return (
-    <Button {...dieButtonProps}>{val}</Button>
+    <Button {...dieButtonProps}>{value}</Button>
   )
 }
