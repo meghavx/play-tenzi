@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Box, Flex, Text, Button, Heading, SimpleGrid } from "@chakra-ui/react"
-import Die from './components/Die'
+import Die from "./components/Die"
+import { nanoid } from "nanoid"
 
 export default function App() {
   const [dice, setDice] = useState(generateAllNewDice())
@@ -9,13 +10,14 @@ export default function App() {
     return Array(10)
       .fill(0)
       .map(() => ({
+        id: nanoid(4),
         value: Math.ceil(Math.random() * 6),
         isHeld: false,
       })
     )
   }
 
-  const diceElements = dice.map((dieObj, index) => <Die key={index} {...dieObj} />)
+  const diceElements = dice.map(dieObj => <Die key={dieObj.id} {...dieObj} />)
 
   function rollDice() {
     setDice(generateAllNewDice())
