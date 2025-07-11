@@ -6,6 +6,10 @@ import { nanoid } from "nanoid"
 export default function App() {
   const [dice, setDice] = useState(generateAllNewDice())
 
+  if (dice.every(die => die.isHeld && die.value === dice[0].value)) {
+    alert("You won!!")
+  } 
+
   function getRandomVal() {
     return Math.ceil(Math.random() * 6) 
   }
