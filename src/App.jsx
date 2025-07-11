@@ -7,7 +7,7 @@ import { useWindowSize } from 'react-use'
 
 export default function App() {
   const { width, height } = useWindowSize()
-  const [dice, setDice] = useState(generateAllNewDice())
+  const [dice, setDice] = useState(() => generateAllNewDice())
   const gameWon = dice.every(die => die.isHeld && die.value === dice[0].value)
 
   function getRandomVal() {
