@@ -6,12 +6,16 @@ import { nanoid } from "nanoid"
 export default function App() {
   const [dice, setDice] = useState(generateAllNewDice())
 
+  function getRandomVal() {
+    return Math.ceil(Math.random() * 6) 
+  }
+
   function generateAllNewDice() {
     return Array(10)
       .fill(0)
       .map(() => ({
         id: nanoid(4),
-        value: Math.ceil(Math.random() * 6),
+        value: getRandomVal(),
         isHeld: false,
       })
     )
@@ -20,7 +24,9 @@ export default function App() {
   const diceElements = dice.map(dieObj => <Die key={dieObj.id} {...dieObj} handleClick={hold} />)
 
   function rollDice() {
-    setDice(generateAllNewDice())
+    setDice(currDice => currDice.map(die => 
+      !die.isHeld ? {...die, value: getRandomVal()} : die
+    ))
   }
 
   function hold(id) {
