@@ -57,7 +57,7 @@ export default function App() {
     align: "center", 
     justify: "center", 
     overflow: "hidden", 
-    bg: "#E5E5E5",
+    bg: ["#59E391", "#E5E5E5"],
   }
 
   const outerBoxProps = {
@@ -130,15 +130,15 @@ export default function App() {
           <Heading {...headingProps}>Tenzies</Heading>
 
           <Text {...subheadingProps}>
-            Roll until all dice are the same. Click each die to freeze it at its current value between rolls.
+            Roll until all dice are the same. Click 
+            each die to freeze it at its current 
+            value between rolls.
           </Text>
 
-          <SimpleGrid {...diceGridProps}>
-            {diceElements}
-          </SimpleGrid>
+          <SimpleGrid {...diceGridProps}>{diceElements}</SimpleGrid>
 
           <Button {...rollButtonProps}>{gameWon ? "New Game" : "Roll"}</Button>
-          
+
         </Flex>
       </Box>
     </Flex>
