@@ -5,7 +5,7 @@ export const outerFlexProps = {
   align: ["start", "center"],
   justify: "center", 
   overflow: "hidden", 
-  bg: ["#59E391", "#E5E5E5"],
+  bg: "#59E391",
 }
 
 export const outerBoxProps = {
