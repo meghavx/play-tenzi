@@ -1,4 +1,4 @@
-import { ChakraProvider, defaultSystem } from '@chakra-ui/react'
+import { ChakraProvider, defaultSystem } from "@chakra-ui/react"
 
 export function Provider({ children }) {
   return (

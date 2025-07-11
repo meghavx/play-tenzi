@@ -2,8 +2,8 @@ import { useState, useRef, useEffect } from "react"
 import { Box, Flex, Text, Button, Heading, SimpleGrid } from "@chakra-ui/react"
 import Die from "./components/Die"
 import { nanoid } from "nanoid"
-import Confetti from 'react-confetti'
-import { useWindowSize } from 'react-use'
+import Confetti from "react-confetti"
+import { useWindowSize } from "react-use"
 
 export default function App() {
   const { width, height } = useWindowSize()
