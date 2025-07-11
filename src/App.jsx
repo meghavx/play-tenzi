@@ -1,9 +1,14 @@
 import { useState, useRef, useEffect } from "react"
 import { Box, Flex, Text, Button, Heading, SimpleGrid } from "@chakra-ui/react"
-import Die from "./components/Die"
 import { nanoid } from "nanoid"
-import Confetti from "react-confetti"
 import { useWindowSize } from "react-use"
+import Confetti from "react-confetti"
+
+import { outerFlexProps, outerBoxProps, innerFlexProps, 
+  headingProps, subheadingProps, diceGridProps, getRollButtonProps 
+} from "./components/ui/layoutProps"
+
+import Die from "./components/Die"
 
 export default function App() {
   const { width, height } = useWindowSize()
@@ -12,9 +17,7 @@ export default function App() {
   const newGameButtonRef = useRef(null)
 
   useEffect(() => {
-    if (gameWon) {
-      newGameButtonRef.current.focus()
-    }
+    if (gameWon) newGameButtonRef.current.focus()
   }, [gameWon])
 
   function getRandomVal() {
@@ -38,7 +41,7 @@ export default function App() {
     ))
   }
 
-  function hold(id) {
+  function holdDie(id) {
     setDice(currDice => currDice.map(die =>
       die.id === id ? {...die, isHeld: !die.isHeld} : die
     ))
@@ -49,82 +52,16 @@ export default function App() {
   }
 
   const diceElements = dice.map(dieObj => 
-    <Die key={dieObj.id} {...dieObj} handleClick={hold} />
+    <Die key={dieObj.id} {...dieObj} handleClick={holdDie} />
   )
-
-  const outerFlexProps = {
-    minH: "100vh",
-    align: "center", 
-    justify: "center", 
-    overflow: "hidden", 
-    bg: ["#59E391", "#E5E5E5"],
-  }
-
-  const outerBoxProps = {
-    w: ["84vw", "76vw", "540px"],
-    h: ["auto", "84vh", "560px"],
-    px: "8",
-    py: "12",
-    bg: "#0B2434",
-    borderRadius: "md",
-    boxShadow: "xl",
-  }
-
-  const innerFlexProps = {
-    direction: "column",
-    align: "center",
-    w: "100%",
-    h: "100%",
-    px: ["4", "6", "8"],
-    py: ["6", "8", "12"],
-    borderRadius: "xl",
-    bg: "#F5F5F5",
-  }
-
-  const headingProps = {
-    size: ["2xl", "3xl", "4xl"],
-    fontWeight: "700",
-    letterSpacing: "wide",
-    textAlign: "center",
-    color: "#2B283A",
-  }
-
-  const subheadingProps = {
-    px: ["6", "8", "12"],
-    mb: ["2", "4"],
-    fontSize: ["xs", "lg", "xl"],
-    color: "#4A4E74",
-    letterSpacing: "tighter",
-    lineHeight: "shorter",
-    textAlign: "center",
-  }
-
-  const diceGridProps = {
-    mx: "auto",
-    my: "2",
-    columns: "5",
-    gap: ["2", "4", "5"],
-  }
-
-  const rollButtonProps = {
-    minW: ["auto", "100px"],
-    maxW: ["auto", "150px"],
-    h: "auto",
-    m: ["4", "6"],
-    px: "4",
-    py: "10px",
-    fontSize: ["sm", "lg", "xl"],
-    fontWeight: ["normal", "semibold", "bold"],
-    letterSpacing: "wide",
-    bgColor: "#5035FF",
-    onClick: gameWon ? resetDice : rollDice,
-    ref: newGameButtonRef
-  }
 
   return (
     <Flex {...outerFlexProps}>
+
       {gameWon && <Confetti width={width} height={height} />}
+
       <Box {...outerBoxProps}>
+
         <Flex {...innerFlexProps}>
 
           <Heading {...headingProps}>Tenzies</Heading>
@@ -137,10 +74,14 @@ export default function App() {
 
           <SimpleGrid {...diceGridProps}>{diceElements}</SimpleGrid>
 
-          <Button {...rollButtonProps}>{gameWon ? "New Game" : "Roll"}</Button>
+          <Button {...getRollButtonProps({ gameWon, rollDice, resetDice, newGameButtonRef})}>
+            {gameWon ? "New Game" : "Roll"}
+          </Button>
 
         </Flex>
+
       </Box>
+
     </Flex>
   )
 }
