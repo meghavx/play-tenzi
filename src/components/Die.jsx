@@ -11,6 +11,9 @@ export default function Die({ id, value, isHeld, handleClick }) {
     borderRadius: ["md", "lg", "xl"], 
     shadow: "md",
     onClick: () => handleClick(id),
+    "aria-label": `Die with value ${value}, ${isHeld ? "held" : "not held"}`,
+    "aria-pressed": isHeld,
+
   }
 
   return (
