@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Box, Flex, Text, Button, Heading, SimpleGrid } from "@chakra-ui/react"
 import Die from "./components/Die"
 import { nanoid } from "nanoid"
-// import { useWindowSize } from 'react-use'
-// import Confetti from 'react-confetti'
+import Confetti from 'react-confetti'
+import { useWindowSize } from 'react-use'
 
 export default function App() {
+  const { width, height } = useWindowSize()
   const [dice, setDice] = useState(generateAllNewDice())
-
   const gameWon = dice.every(die => die.isHeld && die.value === dice[0].value)
 
   function getRandomVal() {
@@ -25,8 +25,6 @@ export default function App() {
     )
   }
 
-  const diceElements = dice.map(dieObj => <Die key={dieObj.id} {...dieObj} handleClick={hold} />)
-
   function rollDice() {
     setDice(currDice => currDice.map(die => 
       die.isHeld ? die : {...die, value: getRandomVal()}
@@ -43,13 +41,9 @@ export default function App() {
     setDice(generateAllNewDice())
   }
 
-  useEffect(() => {
-    if (gameWon) {
-      setTimeout(() => {
-        alert("You won!!")
-      }, 100);
-    }
-  }, [dice])
+  const diceElements = dice.map(dieObj => 
+    <Die key={dieObj.id} {...dieObj} handleClick={hold} />
+  )
 
   const outerFlexProps = {
     minH: "100vh",
@@ -121,6 +115,7 @@ export default function App() {
 
   return (
     <Flex {...outerFlexProps}>
+      {gameWon && <Confetti width={width} height={height} />}
       <Box {...outerBoxProps}>
         <Flex {...innerFlexProps}>
 
