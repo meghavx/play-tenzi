@@ -2,21 +2,13 @@ import { useState, useEffect } from "react"
 import { Box, Flex, Text, Button, Heading, SimpleGrid } from "@chakra-ui/react"
 import Die from "./components/Die"
 import { nanoid } from "nanoid"
+// import { useWindowSize } from 'react-use'
+// import Confetti from 'react-confetti'
 
 export default function App() {
   const [dice, setDice] = useState(generateAllNewDice())
-  
-  useEffect(() => {
-    const allHeld = dice.every(die => die.isHeld)
-    const allSameValue = dice.every(die => die.value === dice[0].value)
 
-    if (allHeld && allSameValue) {
-      setTimeout(() => {
-        alert("You won!!")
-        setDice(generateAllNewDice())
-      }, 100);
-    }
-  }, [dice])
+  const gameWon = dice.every(die => die.isHeld && die.value === dice[0].value)
 
   function getRandomVal() {
     return Math.ceil(Math.random() * 6) 
@@ -46,6 +38,18 @@ export default function App() {
       die.id === id ? {...die, isHeld: !die.isHeld} : die
     ))
   }
+
+  function resetDice() {
+    setDice(generateAllNewDice())
+  }
+
+  useEffect(() => {
+    if (gameWon) {
+      setTimeout(() => {
+        alert("You won!!")
+      }, 100);
+    }
+  }, [dice])
 
   const outerFlexProps = {
     minH: "100vh",
@@ -102,14 +106,17 @@ export default function App() {
   }
 
   const rollButtonProps = {
-    w: ["68px", "100px", "120px"],
-    h: ["32px", "44px", "48px"],
+    minW: "100px",
+    maxW: "150px",
+    h: "auto",
     m: ["4", "6"],
+    px: "4",
+    py: "10px",
     fontSize: ["sm", "lg", "xl"],
     fontWeight: ["normal", "semibold", "bold"],
     letterSpacing: "wide",
     bgColor: "#5035FF",
-    onClick: rollDice
+    onClick: gameWon ? resetDice : rollDice
   }
 
   return (
@@ -127,7 +134,7 @@ export default function App() {
             {diceElements}
           </SimpleGrid>
 
-          <Button {...rollButtonProps}>Roll</Button>
+          <Button {...rollButtonProps}>{gameWon ? "New Game" : "Roll"}</Button>
           
         </Flex>
       </Box>
