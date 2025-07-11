@@ -17,10 +17,14 @@ export default function App() {
     )
   }
 
-  const diceElements = dice.map(dieObj => <Die key={dieObj.id} {...dieObj} />)
+  const diceElements = dice.map(dieObj => <Die key={dieObj.id} {...dieObj} handleClick={hold} />)
 
   function rollDice() {
     setDice(generateAllNewDice())
+  }
+
+  function hold(id) {
+    alert(id)
   }
 
   const outerFlexProps = {
