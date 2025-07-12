@@ -5,7 +5,7 @@ export const outerFlexProps = {
   align: ["start", "center"],
   justify: "center", 
   overflow: "hidden", 
-  bg: "#59E391",
+  bg: "#0B2434",
 }
 
 export const outerBoxProps = {
@@ -65,7 +65,7 @@ export const getDieBoxProps = ({ id, value, isHeld, handleClick }) => ({
 })
 
 export const getDieFaceProps = ({ isHeld }) => ({
-  size: [36, 48, 60],
+  size: 60,
   color: "#2B283A",
   fill: !isHeld ? "#FFF" : "#59E391",
 })
