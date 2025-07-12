@@ -31,7 +31,7 @@ export const innerFlexProps = {
 
 export const headingProps = {
   size: ["2xl", "3xl", "4xl"],
-  mt: ["4", "auto"],
+  mt: "1",
   fontWeight: "700",
   letterSpacing: "wide",
   textAlign: "center",
@@ -39,20 +39,21 @@ export const headingProps = {
 }
 
 export const subheadingProps = {
-  px: ["6", "8", "12"],
-  mb: "4",
   fontSize: ["sm", "lg", "xl"],
   color: "#4A4E74",
   letterSpacing: "tighter",
   lineHeight: "shorter",
   textAlign: "center",
+  minH: ["2.5rem", "3rem", "3.5rem"],
+  whiteSpace: "pre-line", 
 }
 
 export const diceGridProps = {
   mx: "auto",
-  my: ["4", "2"],
+  mt: "6",
+  mb: "2",
   columns: "5",
-  gap: ["2", "4", "5"],
+  gap: ["2", "4"],
 }
 
 export const getDieBoxProps = ({ id, value, isHeld, handleClick }) => ({
@@ -64,7 +65,7 @@ export const getDieBoxProps = ({ id, value, isHeld, handleClick }) => ({
 })
 
 export const getDieFaceProps = ({ isHeld }) => ({
-  size: [36, 52, 60],
+  size: [36, 48, 60],
   color: "#2B283A",
   fill: !isHeld ? "#FFF" : "#59E391",
 })

@@ -67,9 +67,13 @@ export default function App() {
           <Heading {...headingProps}>Tenzies</Heading>
 
           <Text {...subheadingProps}>
-            Roll until all dice are the same. Click 
-            each die to freeze it at its current 
-            value between rolls.
+            {gameWon 
+              ? `Woohoo! You won! 🎉
+                Want to roll again?`
+              : `Roll until all dice are the same. Click
+                Click each die to freeze it at its current
+                value between rolls.`
+              }
           </Text>
 
           <SimpleGrid {...diceGridProps}>{diceElements}</SimpleGrid>
