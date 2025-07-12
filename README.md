@@ -1,80 +1,81 @@
-# 🎲 Tenzi Game
+<h1><img src="/public/dice_icon.png" height="24px">  Play Tenzi</h1>
 
-![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react)
+![React](https://img.shields.io/badge/React-149ECA?style=flat&logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)
 ![Chakra UI](https://img.shields.io/badge/Chakra--UI-319795?style=flat&logo=chakraui&logoColor=white)
-![License](https://img.shields.io/badge/license-MIT-green)
+![License](https://img.shields.io/badge/License-MIT-2196F3.svg)
 
-A simple, fun dice game I built as a practice project while auditing the **Learn React** course on [Scrimba](https://scrimba.com/). 
+A simple, fun **dice game** — roll, hold, match, and win! 
 
----
+#### How to Play
+➝  Roll the dice until every die shows the same number. <br />
+➝  Click on a die to hold its number in place while you re-roll the rest. <br />
+➝  Win when all dice are held and match. <br />
 
-## How to Play
-Roll dice until they all show the same number. Click to **hold** dice at their current value while you re-roll the rest — win when all dice are frozen and match!
-
-[Click to Play](https://your-live-deployment-link.com)
+#### [► Play a Round](https://play-tenzy.netlify.app/)
 
 ---
 
 ## Features
 
-- Roll 10 dice and hold them to match
-- Simple click-to-hold interaction
-- Visual feedback for held dice
-- Die faces shown with Lucide icons instead of plain numbers
-- Confetti when you win! 🎉
-- Responsive and mobile-friendly UI
+- Click any die to hold or release it
+- Roll only unheld dice each turn
+- Clear visual feedback for held dice
+- Confetti celebration when all dice match 🎉
+- Fully responsive, mobile-friendly UI
 
 ---
 
 ## Screenshots
 
-|  Start | Playing | Winning |
-|--------|---------|---------|
-| ![Start Screen](https://github.com/user-attachments/assets/b121255a-1990-4f54-bd79-ce51387b5291) | ![Playing Screen](https://github.com/user-attachments/assets/48bba5fd-9d34-4518-9c54-b6a788c3a0dd) | ![Winning Screen](https://github.com/user-attachments/assets/179c5dda-5c45-4e88-aca3-14279dc1b3a2) |
+|              |   **Desktop**  |                |                |    **Mobile**  |                |
+|:------------:|:--------------:|:--------------:|:--------------:|:--------------:|:--------------:|
+| ![desktop_start](https://github.com/user-attachments/assets/db31ad86-9a4e-401e-8b1d-c4ef824f52ae) | ![desktop_playing](https://github.com/user-attachments/assets/8b3af821-18e1-47c4-9f53-d723acac943b) | ![desktop_winning](https://github.com/user-attachments/assets/1a018787-1d9d-4ffd-9d4a-27a2cb033806) | ![mobile_start](https://github.com/user-attachments/assets/1bffa88d-550f-47bc-af7b-3faa89cb2bca) | ![mobile_playing](https://github.com/user-attachments/assets/233c74ef-bf89-4b74-ba05-ec792f18c3d0) | ![mobile_winning](https://github.com/user-attachments/assets/4311a27d-bbbd-413d-8240-9611650b31ea)
+
 
 ---
 
 ## Tech Stack
 
-- **React** (JavaScript)
-- **Vite** (for fast bundling & dev server)
-- **Chakra UI** (accessible component library)
-- **Lucide React Icons** (die face icons)
-- **React Confetti** (`react-confetti` npm package)
+- **React** — Frontend library
+- **Vite** — Fast dev server & bundler
+- **Chakra UI** — UI components
+- **Lucide React Icons** — Dice symbols
+- **React Confetti** — Celebration effect <br />
 
 ---
 
-## Steps to run this project locally
+## Deployment
 
-1. Ensure that **Node.js** and **npm** are installed.
+This project is deployed and hosted on [Netlify](https://www.netlify.com/).
 
-2. Clone the repository  
-   ```bash
-   git clone https://github.com/meghavx/play-tenzi.git
-3. Navigate to the project folder
-   ```bash
-   cd play-tenzi
-4. Install dependencies
-   ```bash
-   npm install
-5. Start the development server
-   ```bash
-   npm run dev
+##### Live Demo: https://play-tenzy.netlify.app/
 
-The app will open at http://localhost:5173 by default.
+---
+
+## Steps to Run this Project Locally
+
+**Ensure that **Node.js** and **npm** are installed.
+
+```bash
+git clone https://github.com/meghavx/play-tenzi.git
+cd play-tenzi
+npm install   
+npm run dev
+```
+
+##### The app will run at http://localhost:5173 by default.
 
 ---
 
 ## Acknowledgments
 
-Thanks to *Scrimba* for their clear, interactive way of teaching **React** and making the learning actually fun and hands-on.
-
-👉 [Learn React on Scrimba](https://scrimba.com/learn-react-c0e)
+Thanks to [Scrimba](https://scrimba.com/home) for their clear, interactive way of teaching **React** and making learning actually fun and hands-on. 
+<br /> <br />
+This game was built as the final capstone in their [Learn React](https://scrimba.com/learn-react-c0e) course. 
 
 ---
 
 ## License
 
 This project is open source under the **MIT License**.
-
