@@ -12,14 +12,14 @@ A simple, fun **dice game** — roll, hold, match, and win!
 ➝  Click on a die to hold its number in place while you re-roll the rest. <br />
 ➝  Win when all dice are held and match. <br />
 
-#### [► Play a Round](https://play-tenzy.netlify.app/)
+#### [► Play a Round](https://come-play-tenzi.netlify.app/)
 
 ---
 
 ## Features
 
 - Click any die to hold or release it
-- Roll only unheld dice each turn
+- Roll only unheld dice in each turn
 - Clear visual feedback for held dice
 - Confetti celebration when all dice match 🎉
 - Fully responsive, mobile-friendly UI
@@ -49,7 +49,7 @@ A simple, fun **dice game** — roll, hold, match, and win!
 
 This project is deployed and hosted on [Netlify](https://www.netlify.com/).
 
-##### Live Demo: https://play-tenzy.netlify.app/
+##### Live Demo: https://come-play-tenzi.netlify.app/
 
 ---
 
