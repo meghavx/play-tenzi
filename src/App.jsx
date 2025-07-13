@@ -68,10 +68,11 @@ export default function App() {
 
           <Text {...subheadingProps}>
             {gameWon 
-              ? `Woohoo! You won! 🎉
-                Want to roll again?`
+              ? `Woohoo! You won! 🎉 
+              Want to roll again? Click on 
+              New Game!`
               : `Roll until all dice are the same. Click
-                Click each die to freeze it at its current
+                each die to freeze it at its current
                 value between rolls.`
               }
           </Text>
