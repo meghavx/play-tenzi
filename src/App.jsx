@@ -1,14 +1,28 @@
 import { useState, useRef, useEffect } from "react"
-import { Box, Flex, Text, Button, Heading, SimpleGrid } from "@chakra-ui/react"
 import { nanoid } from "nanoid"
 import { useWindowSize } from "react-use"
 import Confetti from "react-confetti"
 
-import { outerFlexProps, outerBoxProps, innerFlexProps, 
-  headingProps, subheadingProps, diceGridProps, getRollButtonProps 
-} from "./components/ui/layoutProps"
+import { 
+  Box, 
+  Flex, 
+  Text, 
+  Button, 
+  Heading, 
+  SimpleGrid 
+} from "@chakra-ui/react"
 
-import Die from "./components/Die"
+import Die from "./Die"
+
+import {
+  outerFlexProps, 
+  outerBoxProps, 
+  innerFlexProps, 
+  headingProps, 
+  subheadingProps, 
+  diceGridProps, 
+  getRollButtonProps 
+} from "./layoutProps.js"
 
 export default function App() {
   const { width, height } = useWindowSize()

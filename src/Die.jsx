@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react"
 import { Dice1, Dice2, Dice3, Dice4, Dice5, Dice6 } from "lucide-react"
-import { getDieBoxProps, getDieFaceProps } from "./ui/layoutProps"
+import { getDieBoxProps, getDieFaceProps } from "./layoutProps"
 
 export default function Die({ id, value, isHeld, handleClick }) {
   const DieFaces = [Dice1, Dice2, Dice3, Dice4, Dice5, Dice6]
