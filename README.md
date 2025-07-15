@@ -12,7 +12,7 @@ A simple, fun **dice game** — roll, hold, match, and win!
 ➝  Click on a die to hold its number in place while you re-roll the rest. <br />
 ➝  Win when all dice are held and match. <br />
 
-#### [► Play a Round](https://come-play-tenzi.netlify.app/)
+#### [► Play](https://come-play-tenzi.netlify.app/)
 
 ---
 
@@ -28,17 +28,16 @@ A simple, fun **dice game** — roll, hold, match, and win!
 
 ## Screenshots
 
-|              |   **Desktop**  |                |                |    **Mobile**  |                |
-|:------------:|:--------------:|:--------------:|:--------------:|:--------------:|:--------------:|
-| ![desktop_start](https://github.com/user-attachments/assets/db31ad86-9a4e-401e-8b1d-c4ef824f52ae) | ![desktop_playing](https://github.com/user-attachments/assets/8b3af821-18e1-47c4-9f53-d723acac943b) | ![desktop_winning](https://github.com/user-attachments/assets/1a018787-1d9d-4ffd-9d4a-27a2cb033806) | ![mobile_start](https://github.com/user-attachments/assets/1bffa88d-550f-47bc-af7b-3faa89cb2bca) | ![mobile_playing](https://github.com/user-attachments/assets/233c74ef-bf89-4b74-ba05-ec792f18c3d0) | ![mobile_winning](https://github.com/user-attachments/assets/4311a27d-bbbd-413d-8240-9611650b31ea)
-
+|   Start Screen  |   Game Started  |    Game Won    |
+|-----------------|-----------------|----------------|
+| ![game-start](https://github.com/user-attachments/assets/f8f5ce27-5bcd-4887-9a1d-a14a13553415) | ![playing](https://github.com/user-attachments/assets/c67a5d63-d2b1-4dd8-9938-911c059355bc) | ![game-won](https://github.com/user-attachments/assets/be6df86a-2104-4edf-97fd-5d2db295a950) |
 
 ---
 
 ## Tech Stack
 
-- **React** — Frontend library
-- **Vite** — Fast dev server & bundler
+- **React + JavaScript** — Frontend
+- **Vite** — Fast dev server & build tool
 - **Chakra UI** — UI components
 - **Lucide React Icons** — Dice symbols
 - **React Confetti** — Celebration effect <br />
@@ -49,7 +48,7 @@ A simple, fun **dice game** — roll, hold, match, and win!
 
 This project is deployed and hosted on [Netlify](https://www.netlify.com/).
 
-##### Live Demo: https://come-play-tenzi.netlify.app/
+##### Live Demo: [come-play-tenzi.netlify.app](https://come-play-tenzi.netlify.app/)
 
 ---
 
